@@ -21,11 +21,10 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: ['@/plugins/accessor'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [{ path: '@/components', pathPrefix: false }],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -34,14 +33,19 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources',
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios',
   ],
   styleResources: {
     // your settings here
     scss: ['@/components/bosons/*.scss'],
    },
 
+   axios: {
+     baseURL: 'https://ibook-api.herokuapp.com'
+   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true
   }
 }
