@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <h1>Error</h1>
+    <div class="body-error">
+        <!-- <h1>Error</h1> -->
+        <img src="@/assets/img/404.svg" alt="">
     </div>
 </template>
 
@@ -13,5 +14,11 @@
 </script>
 
 <style scoped>
+.body-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
 
 </style>
