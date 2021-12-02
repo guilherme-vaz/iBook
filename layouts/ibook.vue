@@ -14,10 +14,12 @@
 
 
 <style lang="scss" scoped>
+
 .ibook-layout {
   margin-top: 4.313rem;
   display: grid;
   grid-gap: 6.75rem;
+  padding-bottom: 10.9rem;
   .container {
     padding-bottom: 6.75rem;
   }
