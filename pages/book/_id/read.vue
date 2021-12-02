@@ -2,7 +2,7 @@
   <div>
     <p class="book-title">{{ $book.title }}</p>
     <div class="read-container">
-      <div class="vertical-container">
+      <!-- <div class="vertical-container">
         <div
           v-for="page in $book.pages"
           :key="page.id"
@@ -11,7 +11,7 @@
         > 
           <img src="@/assets/img/page.svg" alt="">
         </div>
-      </div>
+      </div> -->
       <!-- Pages -->
       <div class="swiper-container">
         <!-- Additional required wrapper -->
@@ -32,9 +32,13 @@
         >
           {{ page.pageNumber }}
         </div>
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev">
+        <img src="@/assets/img/arrow.svg" alt="Arrow previous" />
+      </div>
+      <div class="swiper-button-next">
+        <img src="@/assets/img/arrow.svg" alt="Arrow next" />
       </div>
     </div>
   </div>
@@ -71,19 +75,12 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-.vertical-pages {
-  width: 9vw;
-  height: 25vh;
-  /* background-color: aquamarine; */
-  border: 1px solid rgb(56, 56, 56);
-  margin-bottom: 1rem;
+<style lang="scss" scoped>
+.book-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
   text-align: center;
-}
-
-.page-item {
- padding: 2rem;
-  background-color: red;
 }
 
 .swiper-container {
@@ -92,18 +89,35 @@ export default Vue.extend({
   -webkit-box-shadow: 3px 5px 24px 5px rgba(0, 0, 0, 0.32);
   box-shadow: 3px 5px 24px 5px rgba(0, 0, 0, 0.32);
   background-color: #f7f7f7;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  position: relative;
 }
 
-.read-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.swiper-button-prev {
+  z-index: 999;
+  position: absolute;
+  top: 108vh;
+  left: 62vw;
+  color: transparent;
+
+  img {
+    background-color: #292929;
+    padding: 0.3rem;
+  }
 }
 
-.book-title {
-  font-weight: bold;
-  font-size: 1.3rem;
+.swiper-button-next {
+  z-index: 999;
+  position: absolute;
+  top: 108vh;
+  right: 33.5vw;
+  color: transparent;
+
+  img {
+    transform: rotate(-180deg);
+    background-color: #292929;
+    padding: 0.3rem;
+  }
 }
 
 .page-container {
