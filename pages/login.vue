@@ -1,5 +1,5 @@
 <template>
-  <div class="teste">
+  <div class="container">
     <div class="login-container">
       <!-- Header   -->
       <div class="login-header">
@@ -26,7 +26,7 @@ export default Vue.extend({})
 </script>
 
 <style lang="scss" scoped>
-.teste {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@ export default Vue.extend({})
   background-color: #292929;
   max-width: 350px;
   height: 50vh;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 5px;
 
   -webkit-box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.16);

@@ -33,7 +33,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', 'cookie-universal-nuxt'
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/auth-next', 'cookie-universal-nuxt'
   ],
   styleResources: {
     // your settings here
