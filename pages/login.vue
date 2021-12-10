@@ -9,12 +9,12 @@
       </div>
 
       <!-- Form -->
-      <div class="form">
-        <input type="email" id="email" placeholder="johndoe@gmail.com" />
-        <input type="password" id="password" placeholder="Senha" />
+      <form class="form" method="post" @submit.prevent="login">
+        <input  v-model="email" type="email" id="email" placeholder="johndoe@gmail.com" />
+        <input  v-model="password" type="password" id="password" placeholder="Senha" />
 
-        <NuxtLink class="login-button" to="/"> Entrar </NuxtLink>
-      </div>
+        <button type="submit" class="login-button" to="/"> Entrar </button>
+      </form>
     </div>
   </div>
 </template>
@@ -22,7 +22,33 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data(){
+    return {
+      email: '',
+      password: '',
+      error: null,
+    }
+  },
+  
+  methods: {
+    async login(){
+      try {
+        // Não sei o porque desse erro ainda
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+
+        this.$router.push('/dashboard')
+      } catch (e: any){
+        this.error = e.response.data.message
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

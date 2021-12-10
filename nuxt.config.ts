@@ -33,16 +33,30 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/auth-next', 'cookie-universal-nuxt'
-  ],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/auth-next', 'cookie-universal-nuxt' ],
+
   styleResources: {
     // your settings here
     scss: ['@/components/bosons/*.scss'],
    },
 
+  //  Axios base URL
    axios: {
      baseURL: 'https://ibook-api.herokuapp.com'
    },
+
+  //  Auth strategies
+   auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'data.token' },
+          dashboard: { url: 'dashboard', method: 'get', propertyName: 'data' },
+          logout: false
+        }
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
