@@ -9,9 +9,11 @@
       </div>
 
       <!-- Form -->
-      <form class="form" method="post" @submit.prevent="login">
-        <input  v-model="email" type="email" id="email" placeholder="johndoe@gmail.com" />
-        <input  v-model="password" type="password" id="password" placeholder="Senha" />
+      <form class="form" method="post" @submit.prevent="userLogin">
+
+        <input  v-model="login.email" type="email" id="email" placeholder="johndoe@gmail.com" required />
+
+        <input  v-model="login.password" type="password" id="password" placeholder="Senha" required />
 
         <button type="submit" class="login-button" to="/"> Entrar </button>
       </form>
@@ -23,28 +25,21 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  data(){
+  data() {
     return {
-      email: '',
-      password: '',
-      error: null,
+      login: {
+        email: '',
+        password: ''
+      }
     }
   },
-  
   methods: {
-    async login(){
+    async userLogin() {
       try {
-        // Não sei o porque desse erro ainda
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        })
-
-        this.$router.push('/dashboard')
-      } catch (e: any){
-        this.error = e.response.data.message
+        const response = await this.$auth.loginWith('local', { data: this.login })
+        console.log(response)
+      } catch (err) {
+        console.log(err)
       }
     }
   }
