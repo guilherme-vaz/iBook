@@ -1,5 +1,7 @@
 # ibook
 
+API not working anymore :(
+
 ## Build Setup
 
 ```bash
